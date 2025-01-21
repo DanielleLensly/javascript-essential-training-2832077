@@ -36,4 +36,37 @@ class Backpack {
   }
 }
 
+class HikingBackpack extends Backpack {
+  constructor(
+    name,
+    volume,
+    color,
+    pocketNum,
+    strapLengthL,
+    strapLengthR,
+    lidOpen,
+    dateAcquired,
+    hydrationCapacity
+  ) {
+    super(name, volume, color, pocketNum, strapLengthL, strapLengthR, lidOpen);
+
+    this.hydrationCapacity = hydrationCapacity;
+  }
+  checkHydration() {
+    if (this.hydrationCapacity > 0) {
+      console.log(`You have ${this.hydrationCapacity} liters of water left`);
+    } else {
+      console.log("Time to refill your water!");
+    }
+  }
+  toggleLid(lidStatus) {
+    super.toggleLid(lidStatus);
+    if (lidStatus) {
+      console.log("Your hiking backpack lid is open, Close it.");
+    } else {
+      console.log("Nothing to worry about");
+    }
+  }
+}
+
 export default Backpack;
